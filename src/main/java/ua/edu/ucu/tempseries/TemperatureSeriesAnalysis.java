@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     double[] temperatureSeries;
+    double minpr = 0.000001;
 
     public TemperatureSeriesAnalysis() {
 
@@ -76,7 +77,7 @@ public class TemperatureSeriesAnalysis {
             if (Math.abs(this.temperatureSeries[i]) <= Math.abs(closest)) {
                 if (this.temperatureSeries[i] > 0) {
                     closest = this.temperatureSeries[i];
-                } else if (Math.abs(this.temperatureSeries[i]) != Math.abs(closest)) {
+                } else if (Math.abs(Math.abs(this.temperatureSeries[i]) - Math.abs(closest)) < this.minpr) {
                     closest = this.temperatureSeries[i];
                 }
             }
