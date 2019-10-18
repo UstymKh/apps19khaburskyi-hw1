@@ -77,7 +77,7 @@ public class TemperatureSeriesAnalysis {
             if (Math.abs(this.temperatureSeries[i]) <= Math.abs(closest)) {
                 if (this.temperatureSeries[i] > 0) {
                     closest = this.temperatureSeries[i];
-                } else if (Math.abs(Math.abs(this.temperatureSeries[i]) - Math.abs(closest)) < this.minpr) {
+                } else if (Math.abs(Math.abs(this.temperatureSeries[i]) - Math.abs(closest)) > this.minpr) {
                     closest = this.temperatureSeries[i];
                 }
             }
@@ -93,7 +93,7 @@ public class TemperatureSeriesAnalysis {
         for (int i = 0; i < this.temperatureSeries.length; i++) {
             if (Math.abs(this.temperatureSeries[i] - tempValue) <= Math.abs(closest - tempValue)) {
                 closest = this.temperatureSeries[i];
-            } else if (Math.abs(this.temperatureSeries[0] - tempValue) == Math.abs(closest - tempValue) && this.temperatureSeries[0] > closest) {
+            } else if (Math.abs(Math.abs(this.temperatureSeries[0] - tempValue) - Math.abs(closest - tempValue)) < this.minpr && this.temperatureSeries[0] > closest) {
                 closest = this.temperatureSeries[i];
             }
         }
